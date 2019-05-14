@@ -44,8 +44,6 @@ public class DemoListDomains {
         try {
             initClient();
             useIp = NetWorkIPFactory.getCanUseIp(config.ipServers);
-            if (Boolean.valueOf("true"))
-                throw new RuntimeException();
             DescribeDomainRecordsRequest request = new DescribeDomainRecordsRequest();
             DescribeDomainRecordsResponse response;
             request.setDomainName(config.domain);
