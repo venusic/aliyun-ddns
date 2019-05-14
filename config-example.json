@@ -1,0 +1,15 @@
+{
+  "accessKeyId": "**********",
+  "accessKeySec": "**********",
+  "domain": "购买的域名",
+  "ipServers": [
+    "http://members.3322.org/dyndns/getip",
+    "http://ifconfig.me/ip",
+    "http://icanhazip.com",
+    "http://ipinfo.io/ip"
+  ],
+  "sendMailQQ": "QQ号码",
+  "qqMailPwd": "邮箱访问密码",
+  "receiveMail": "收件人",
+  "rr": "主机记录，@或其他子域名，根据阿里云控制台主机记录填写的值"
+}
