@@ -51,8 +51,6 @@ public class DemoListDomains {
             response = client.getAcsResponse(request);
             List<DescribeDomainRecordsResponse.Record> list = response.getDomainRecords();
             for (DescribeDomainRecordsResponse.Record domain : list) {
-                System.out.println(domain.getRR());
-
                 if (domain.getRR().equals(config.rr))
                     if (!useIp.equals(domain.getValue())) {
                         updateDNS(domain, useIp);
@@ -99,8 +97,6 @@ public class DemoListDomains {
 
     public static void sendErrorMail(String msg) throws Exception {
         Properties prop = new Properties();
-        // 开启debug调试，以便在控制台查看
-        prop.setProperty("mail.debug", "true");
         // 设置邮件服务器主机名
         prop.setProperty("mail.host", "smtp.qq.com");
         // 发送服务器需要身份验证
@@ -132,5 +128,6 @@ public class DemoListDomains {
         // 发送邮件
         ts.sendMessage(message, message.getAllRecipients());
         ts.close();
+        System.out.println("错误邮件发送成功！");
     }
 }
