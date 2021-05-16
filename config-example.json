@@ -3,10 +3,10 @@
   "accessKeySec": "**********",
   "domain": "购买的域名",
   "ipServers": [
-    "http://members.3322.org/dyndns/getip",
-    "http://ifconfig.me/ip",
-    "http://icanhazip.com",
-    "http://ipinfo.io/ip"
+    "https://ip.cn/api/index?ip=&type=0",
+    "http://ip.chacha.cn/",
+    "http://pv.sohu.com/cityjson",
+    "http://members.3322.org/dyndns/getip"
   ],
   "sendMailQQ": "QQ号码",
   "qqMailPwd": "邮箱访问密码",
