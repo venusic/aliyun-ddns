@@ -1,12 +1,13 @@
 package com.wastrel.autodns;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.aliyuncs.DefaultAcsClient;
 import com.aliyuncs.IAcsClient;
-import com.aliyuncs.alidns.model.v20150109.*;
+import com.aliyuncs.alidns.model.v20150109.DescribeDomainRecordsRequest;
+import com.aliyuncs.alidns.model.v20150109.DescribeDomainRecordsResponse;
+import com.aliyuncs.alidns.model.v20150109.UpdateDomainRecordRequest;
+import com.aliyuncs.alidns.model.v20150109.UpdateDomainRecordResponse;
 import com.aliyuncs.exceptions.ClientException;
-import com.aliyuncs.exceptions.ServerException;
 import com.aliyuncs.profile.DefaultProfile;
 import com.aliyuncs.profile.IClientProfile;
 import com.sun.mail.util.MailSSLSocketFactory;
@@ -51,7 +52,8 @@ public class DemoListDomains {
             response = client.getAcsResponse(request);
             List<DescribeDomainRecordsResponse.Record> list = response.getDomainRecords();
             for (DescribeDomainRecordsResponse.Record domain : list) {
-                if (domain.getRR().equals(config.rr))
+                String domainRR = domain.getRR();
+                if (config.rr.contains(domainRR))
                     if (!useIp.equals(domain.getValue())) {
                         updateDNS(domain, useIp);
                     } else {
